@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:sayhi="http://www.mulesoft.org/schema/mule/sayhi"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/sayhi http://www.mulesoft.org/schema/mule/sayhi/current/mule-sayhi.xsd">
+
+    <sayhi:config name="config" configId="configId">
+        <sayhi:connection requiredParameter="aValue" />
+    </sayhi:config>
+
+    <flow name="sayHiFlow">
+        <sayhi:say-hi person="Manik Magar"/>
+    </flow>
+
+	<flow name="retrieveInfoFlow">
+        <sayhi:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
